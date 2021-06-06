@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fastnumemes">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
+
+    <application
+
+
+        android:allowBackup="true"
+        android:icon="@drawable/apnalogo"
+        android:label="FastNuMemes"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+ 	<meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="@string/banner_ad_unit_id"/>
+        
+       <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+
+        <service android:name=".LoginService" />
+        <service android:name=".RegisterService" />
+    </application>
+
+</manifest>
